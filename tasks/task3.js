@@ -5,9 +5,18 @@
 "https://jsonplaceholder.typicode.com/users - адреса куди робити запит"
 
 
+
 function updateUser(id, updatedData) {
-  // Ваш код
+  return fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedData)
+  })
+    .then(response => response.json());
 }
+
 
 console.log(updateUser(1, { name: 'New Name' }));
 
